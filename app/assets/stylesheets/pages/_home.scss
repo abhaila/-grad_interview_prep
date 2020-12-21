@@ -1,1 +1,27 @@
 // Specific CSS for your home-page
+.home-page-trusted {
+  background-color: $primaryblue;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: regular;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.carousel-item h4 {
+  color: $primaryblue;
+  font-weight: bold;
+}
+
+.carousel-item h5 {
+  color: $purple;
+  font-weight: bold;
+}
+
+.carousel-item {
+  background-color: #FCF5E8;
+}
