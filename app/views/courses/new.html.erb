@@ -1,0 +1,24 @@
+<div class="container my-3">
+  <h3>Add a new course</h3>
+</div>
+
+<div class="container">
+  <%= simple_form_for @course do |f| %>
+    <%= f.input :name,
+                required: true %>
+    <%= f.input :type,
+                required: true,
+                collection: ['Online Test', 'Interview', 'Other'] %>
+    <%= f.input :paid_material,
+                required: true,
+                input_html: { class: "toggle" } %>
+    <%= f.input :description,
+                required: true %>
+    <%= f.input :example_question,
+                required: true %>
+    <%= f.input :photo,
+                label: "Course photo",
+                as: :file %>
+    <%= f.submit "Submit", class: "btn btn-ghost" %>
+  <% end %>
+</div>

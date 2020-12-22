@@ -8,7 +8,6 @@ class CoursesController < ApplicationController
     @booking = Booking.new
   end
 
-
   #use pundit to only allow admin to do these methods
   def new
     @course = Course.new
@@ -44,7 +43,7 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:name, :type, :paid, :description, :example)
+    params.require(:course).permit(:name, :type, :paid_material, :description, :example_question, :photo)
   end
 
 end
