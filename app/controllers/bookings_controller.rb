@@ -32,10 +32,10 @@ class BookingsController < ApplicationController
   end
 
   def find_course
-    @course = Service.find(params[:service_id])
+    @course = Course.find(params[:course_id])
   end
 
   def booking_params
-    params.require(:booking).permit(:deadline)
+    params.require(:booking)
   end
 end

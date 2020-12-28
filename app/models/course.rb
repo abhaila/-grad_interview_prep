@@ -1,8 +1,9 @@
 class Course < ApplicationRecord
-  has_many :bookings, dependent: :destroy
+  has_many :bookings
+  # dependent: :destroy add later
   has_one_attached :photo
 
   COURSE_TYPE = ['Online Test', 'Interview', 'Other']
-  validates :name, :type, :paid, :description, :example, presence: true
-  validates :category, inclusion: { in: COURSE_TYPE }
+  validates :name, :course_type, :paid_material, :description, :example_question, presence: true
+  validates :course_type, inclusion: { in: COURSE_TYPE }
 end
