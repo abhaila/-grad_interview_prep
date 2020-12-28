@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+
   def index
     @courses = Course.all
   end
@@ -43,7 +45,7 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:name, :type, :paid_material, :description, :example_question, :photo)
+    params.require(:course).permit(:name, :course_type, :paid_material, :description, :example_question, photo)
   end
 
 end

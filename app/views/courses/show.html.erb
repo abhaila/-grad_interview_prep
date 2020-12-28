@@ -1,0 +1,10 @@
+<div class="container">
+  <%= cl_image_tag @course.photo.key, height: 500, width: 1100, crop: :fill  %>
+</div>
+<div class="container">
+  <div class="course-container">
+    <h3> <%= @course.course_type %></h3>
+    <h1> <%= @course.name %> </h1>
+    <p> <%= @course.description %> </p>
+  </div>
+</div>
