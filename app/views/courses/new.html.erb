@@ -4,21 +4,44 @@
 
 <div class="container">
   <%= simple_form_for @course do |f| %>
-    <%= f.input :name,
-                required: true %>
-    <%= f.input :type,
+
+    <div class="form-inputs">
+      <%= f.input :name,
+                  required: true %>
+    </div>
+
+    <div class="form-inputs">
+      <%= f.input :course_type,
                 required: true,
                 collection: ['Online Test', 'Interview', 'Other'] %>
-    <%= f.input :paid_material,
+    </div>
+
+    <div class="form-inputs">
+      <%= f.input :paid_material,
                 required: true,
                 input_html: { class: "toggle" } %>
-    <%= f.input :description,
-                required: true %>
-    <%= f.input :example_question,
-                required: true %>
-    <%= f.input :photo,
+    </div>
+
+    <div class="form-inputs">
+      <%= f.label :description,
+                      label: "Course description" %>
+      <%= f.rich_text_area :description,
+                            required: true %>
+    </div>
+
+    <div class="form-inputs">
+      <%= f.input :example_question %>
+    </div>
+
+    <div class="form-inputs">
+      <%= f.input :photo,
                 label: "Course photo",
                 as: :file %>
-    <%= f.submit "Submit", class: "btn btn-ghost" %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Submit", class: "btn btn-ghost" %>
+    </div>
+
   <% end %>
 </div>
