@@ -1,4 +1,23 @@
-.course-container {
-  padding: 15px;
+.course-img {
+  border: 1px solid black;
+  width: 200px;
+  height: 200px;
+  display: block;
   margin: auto;
+}
+
+.course-type-header {
+  font-size: 24px;
+  color: $primarygreen;
+}
+
+.course-buy-buttons a {
+  font-size: 10px;
+  height: 30px;
+}
+
+.course-header {
+  font-size: 64px;
+  color: $primaryblue;
+  font-weight: bold;
 }
