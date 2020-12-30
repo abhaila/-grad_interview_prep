@@ -1,10 +1,23 @@
-<div class="container">
-  <%= cl_image_tag @course.photo.key, height: 500, width: 1100, crop: :fill  %>
-</div>
-<div class="container">
-  <div class="course-container">
-    <h3> <%= @course.course_type %></h3>
-    <h1> <%= @course.name %> </h1>
-    <p> <%= @course.description %> </p>
+<div class="mx-5 my-3 py-3 px-5">
+  <div class="d-flex justify-content-sm-between">
+    <div class="d-flex flex-row">
+      <div class="">
+        <%= cl_image_tag @course.photo.key, class: "course-img" %>
+      </div>
+      <div class="col-sm-6">
+        <h3 class="course-type-header"> <%= @course.course_type %></h3>
+        <h1 class="course-header"> <%= @course.name %> </h1>
+      </div>
+    </div>
+    <div class="col-sm-2 course-buy-buttons pt-5">
+      <a class="btn btn-flat btn-block my-3" href="#">Free download</a>
+      <a class="btn btn-flat btn-block mb-3" href="#"> Buy </a>
+      <a class="btn btn-flat btn-block mb-3" href="#"> Consulting multi-pack</a>
+    </div>
   </div>
+  <div class="pt-3">
+    <%= @course.description %> </p>
+  </div>
+  <%= link_to "Edit course", edit_course_path(@course), class: "btn btn-dark" %>
+  <%= link_to "Delete course", course_path(@course), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete #{@course}?" }  %>
 </div>
