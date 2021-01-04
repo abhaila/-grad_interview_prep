@@ -13,6 +13,7 @@ class CoursesController < ApplicationController
   #use pundit to only allow admin to do these methods
   def new
     @course = Course.new
+    authorize @course
   end
 
   def create
