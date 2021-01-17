@@ -5,7 +5,15 @@ class CoursePolicy < ApplicationPolicy
     end
   end
 
-  def new?
-    return true
+  def create?
+    true
+  end
+
+  def show?
+    true
+  end
+
+  def update?
+    true
   end
 end
