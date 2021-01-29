@@ -1,0 +1,5 @@
+<% @posts.each do |post| %>
+  <% if policy(post).edit? %>
+    <%= link_to "Update", edit_post_path(post) %>
+  <% end %>
+<% end %>
