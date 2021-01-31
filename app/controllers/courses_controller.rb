@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   def index
-    @courses = Course.all
+    @courses = policy_scope(Course)
   end
 
   def show
@@ -18,7 +18,7 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
-    authorize @course
+    authorize user
 
     if @course.save
       redirect_to course_path(@course)
