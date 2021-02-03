@@ -9,7 +9,6 @@
               <%= course.name %>
             </div>
           <% end %>
-
         <% end %>
       <% end %>
 
@@ -17,5 +16,9 @@
   </div>
 </div>
 <div class="container">
+  <%if policy(@courses).new? %>
   <%= link_to "Add a course", new_course_path(@course), class: "btn btn-dark" %>
+  <% end %>
+
+
 </div>
