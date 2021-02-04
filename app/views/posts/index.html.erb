@@ -1,0 +1,12 @@
+<div class="posts-index">
+  <%= @posts.order(created_at: :desc).each do |post| %>
+    <div class="post-card">
+      <div class="post-head">
+        <%= post.title %>
+      </div>
+      <div class="post-summary">
+        <%= post.summary %>
+      </div>
+    </div>
+  <% end %>
+</div>
