@@ -18,8 +18,7 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
-    authorize user
-
+    authorize @course
     if @course.save
       redirect_to course_path(@course)
     else
@@ -37,7 +36,7 @@ class CoursesController < ApplicationController
 
   def destroy
     @course.destroy
-    redirect_to root_path
+    redirect_to courses_path
   end
 
   private
