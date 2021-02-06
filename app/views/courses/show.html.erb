@@ -19,6 +19,10 @@
   <div class="pt-3">
     <%= @course.description %> </p>
   </div>
-  <%= link_to "Edit course", edit_course_path(@course), class: "btn btn-dark" %>
-  <%= link_to "Delete course", course_path(@course), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete #{@course}?" }  %>
+  <% if policy(@course).edit? %>
+    <%= link_to "Edit course", edit_course_path(@course), class: "btn btn-dark" %>
+  <% end %>
+  <% if policy(@course).destroy? %>
+    <%= link_to "Delete course", course_path(@course), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete #{@course.name}?" }  %>
+  <% end %>
 </div>
