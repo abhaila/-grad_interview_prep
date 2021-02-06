@@ -1,11 +1,12 @@
 <div class="posts-index">
   <%= @posts.order(created_at: :desc).each do |post| %>
     <div class="post-card">
+      <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill %>
       <div class="post-head">
-        <%= post.title %>
+        <h3><%= post.title %></h3>
       </div>
       <div class="post-summary">
-        <%= post.summary %>
+        <p><%= post.summary %></p>
       </div>
     </div>
   <% end %>
