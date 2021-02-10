@@ -35,6 +35,11 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'pundit'
+gem 'money-rails'
+gem 'stripe'
+gem 'stripe_event'
+
+
 # Cloundinary gem for hosting media on the website
 gem 'cloudinary', '~> 1.16.0'
 group :development, :test do  gem 'pry-byebug'

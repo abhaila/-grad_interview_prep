@@ -13,6 +13,11 @@
     <div class="col-sm-2 course-buy-buttons pt-5">
       <%=link_to "Free Material",rails_blob_path(@course.free_material, disposition: 'attachment'), class: "btn btn-flat btn-block my-3", target: 'blank'  %>
       <%=link_to "Paid Material",rails_blob_path(@course.paid_material, disposition: 'attachment'), class: "btn btn-flat btn-block mb-3", target: 'blank'  %>
+      <p>Amount: <%= humanized_money_with_symbol(@course.price) %></p>
+      <%= form_tag orders_path do %>
+      <%= hidden_field_tag 'course_id', @course.id %>
+      <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+      <% end %>
   <!--     <a class="btn btn-flat btn-block my-3" href="#">Free download</a>
       <a class="btn btn-flat btn-block mb-3" href="#"> Buy </a>
       <a class="btn btn-flat btn-block mb-3" href="#"> Consulting multi-pack</a> -->
