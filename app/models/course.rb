@@ -2,7 +2,8 @@ class Course < ApplicationRecord
   has_many :bookings
   # dependent: :destroy add later
   has_one_attached :photo
-  has_many_attached :files
+  has_one_attached :free_material
+  has_one_attached :paid_material
   has_rich_text :description
 
   COURSE_TYPE = ['Online Test', 'Interview', 'Other']
