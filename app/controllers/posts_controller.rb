@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   def index
     @posts = policy_scope(Post).order(created_at: :desc)
   end
-
+  
   def create
     @post = Post.new(post_params)
     authorise @post
@@ -14,9 +14,11 @@ class PostsController < ApplicationController
     end
   end
 
+
   def show
     @post = Post.find(params[:id])
   end
+
 
   def update
     @post.update(post_params)
