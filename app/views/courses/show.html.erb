@@ -1,4 +1,5 @@
 <div class="mx-5 my-3 py-3 px-5">
+  <%= link_to "Back to courses", courses_path, class: "btn btn-dark mb-3" %>
   <div class="d-flex justify-content-sm-between">
     <div class="d-flex flex-row">
       <div class="">
@@ -10,14 +11,25 @@
       </div>
     </div>
     <div class="col-sm-2 course-buy-buttons pt-5">
-      <a class="btn btn-flat btn-block my-3" href="#">Free download</a>
+      <%=link_to "Free Material",rails_blob_path(@course.free_material, disposition: 'attachment'), class: "btn btn-flat btn-block my-3", target: 'blank'  %>
+      <%=link_to "Paid Material",rails_blob_path(@course.paid_material, disposition: 'attachment'), class: "btn btn-flat btn-block mb-3", target: 'blank'  %>
+      <p>Amount: <%= humanized_money_with_symbol(@course.price) %></p>
+      <%= form_tag orders_path do %>
+      <%= hidden_field_tag 'course_id', @course.id %>
+      <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+      <% end %>
+  <!--     <a class="btn btn-flat btn-block my-3" href="#">Free download</a>
       <a class="btn btn-flat btn-block mb-3" href="#"> Buy </a>
-      <a class="btn btn-flat btn-block mb-3" href="#"> Consulting multi-pack</a>
+      <a class="btn btn-flat btn-block mb-3" href="#"> Consulting multi-pack</a> -->
     </div>
   </div>
   <div class="pt-3">
     <%= @course.description %> </p>
   </div>
-  <%= link_to "Edit course", edit_course_path(@course), class: "btn btn-dark" %>
-  <%= link_to "Delete course", course_path(@course), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete #{@course}?" }  %>
+  <% if policy(@course).edit? %>
+    <%= link_to "Edit course", edit_course_path(@course), class: "btn btn-dark" %>
+  <% end %>
+  <% if policy(@course).destroy? %>
+    <%= link_to "Delete course", course_path(@course), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete #{@course.name}?" }  %>
+  <% end %>
 </div>

@@ -6,7 +6,7 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    user.admin?
   end
 
   def show?
@@ -14,6 +14,10 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    user.admin?
+  end
+
+  def destroy?
+    user.admin?
   end
 end

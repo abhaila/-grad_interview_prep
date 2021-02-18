@@ -16,10 +16,11 @@ Course.destroy_all
 
 puts "Creating users...."
 
-areeb = User.create!(email: "areeb@grad.com", password: "secret")
-jonny = User.create!(email: "jonny@grad.com", password: "secret")
+areeb = User.create!(email: "areeb@grad.com", password: "secret", admin: true)
+jonny = User.create!(email: "jonny@grad.com", password: "secret", admin: true)
 
 puts "Creating courses..."
+
 
 puts "Done! #{User.count} users created."
 puts "Done! #{Course.count} courses created."

@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   def index
-    @courses = Course.all
+    @courses = policy_scope(Course)
   end
 
   def show
@@ -37,7 +37,7 @@ class CoursesController < ApplicationController
 
   def destroy
     @course.destroy
-    redirect_to root_path
+    redirect_to courses_path
   end
 
   private
@@ -48,6 +48,6 @@ class CoursesController < ApplicationController
   end
 
   def course_params
-    params.require(:course).permit(:name, :course_type, :paid_material, :description, :example_question, :photo)
+    params.require(:course).permit(:name, :course_type, :paid_material, :description, :example_question, :photo, :free_material, :paid_material, :price_cents)
   end
 end

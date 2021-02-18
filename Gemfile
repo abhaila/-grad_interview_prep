@@ -21,6 +21,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
@@ -34,6 +35,11 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'pundit'
+gem 'money-rails'
+gem 'stripe'
+gem 'stripe_event'
+
+
 # Cloundinary gem for hosting media on the website
 gem 'cloudinary', '~> 1.16.0'
 group :development, :test do  gem 'pry-byebug'

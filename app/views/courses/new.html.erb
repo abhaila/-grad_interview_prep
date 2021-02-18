@@ -17,12 +17,6 @@
     </div>
 
     <div class="form-inputs">
-      <%= f.input :paid_material,
-                required: true,
-                input_html: { class: "toggle" } %>
-    </div>
-
-    <div class="form-inputs">
       <%= f.label :description,
                       label: "Course description" %>
       <%= f.rich_text_area :description,
@@ -37,6 +31,24 @@
       <%= f.input :photo,
                 label: "Course photo",
                 as: :file %>
+    </div>
+
+    <div class="form-inputs">
+      <%= f.input :free_material,
+                label: "Free Material File",
+                as: :file %>
+    </div>
+
+    <div class="form-inputs">
+      <%= f.input :paid_material,
+                label: "Paid Material File",
+                as: :file %>
+    </div>
+
+    <div class="form-inputs">
+      <%= f.input :price_cents,
+                label: "Paid Material Price",
+                as: :integer %>
     </div>
 
     <div class="form-actions">

@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="cards-container">
+    <div class="cards">
+
+      <% @courses.each do |course| %>
+        <% if course.photo.attached? %>
+          <%= link_to course_path(course), class: 'card-text' do  %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path course.photo.key %>')">
+              <%= course.name %>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+<div class="container">
+  <%if policy(@courses).new? %>
+  <%= link_to "Add a course", new_course_path(@course), class: "btn btn-dark" %>
+  <% end %>
+
+
+</div>
