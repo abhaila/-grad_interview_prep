@@ -1,8 +1,18 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+
   def index
-    @posts = policy_scope(Post).order(created_at: :desc)
+    @posts = policy_scope(Post)
+
+    # .order(created_at: :desc)
   end
-  
+
+  def new
+    @post = Post.new
+    authorize @post
+  end
+
   def create
     @post = Post.new(post_params)
     authorise @post
@@ -14,11 +24,9 @@ class PostsController < ApplicationController
     end
   end
 
-
   def show
     @post = Post.find(params[:id])
   end
-
 
   def update
     @post.update(post_params)
@@ -26,6 +34,11 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def set_post
+    @post = Post.find(params[:id])
+    authorize @post
+  end
 
   def post_params
     params.require(:post).permit(:title, :content, :summary, :photo)
