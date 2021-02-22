@@ -5,15 +5,21 @@ class PostPolicy < ApplicationPolicy
     end
 
     def create?
-      return true
+      user.admin?
+    end
+
+    def show?
+      true
     end
 
     def update?
-      record.user == user
+      # record.user == user
+      user.admin?
     end
 
     def destroy?
-      record.user == user
+      # record.user == user
+      user.admin?
     end
   end
 end

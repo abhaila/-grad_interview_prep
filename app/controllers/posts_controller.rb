@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  before_action :set_course, only: [ :show, :edit, :update, :destroy ]
+
   def index
     @posts = policy_scope(Post).order(created_at: :desc)
   end
@@ -12,6 +15,11 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def new
+    @post = Post.new
+    authorize @post
   end
 
   def show
