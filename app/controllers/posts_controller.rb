@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
@@ -11,6 +12,7 @@ class PostsController < ApplicationController
     @post = Post.new
     authorise @post
   end
+
 
   def create
     @post = Post.new(post_params)
