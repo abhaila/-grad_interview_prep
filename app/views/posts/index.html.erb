@@ -10,8 +10,10 @@
       </div>
     </div>
   <% end %>
-  <% if policy(Post).create? %>
-    <%= link_to "New post", new_post_path %>
+</div>
+<div class="">
+  <% if policy(@posts).create? %>
+    <%= link_to "New post", new_post_path(@post) %>
   <% end %>
 </div>
 <div class="container">
