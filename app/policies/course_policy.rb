@@ -6,10 +6,14 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin?
+    true
   end
 
   def show?
+    true
+  end
+
+  def index
     true
   end
 

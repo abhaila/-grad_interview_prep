@@ -18,5 +18,7 @@
 <div class="container">
   <%if policy(@courses).new? %>
     <%= link_to "Add a course", new_course_path(@course), class: "btn btn-dark" %>
+  <% else %>
+    <%= "Not allowed to add course" %>
   <% end %>
 </div>
