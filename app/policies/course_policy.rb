@@ -19,6 +19,10 @@ class CoursePolicy < ApplicationPolicy
     true
   end
 
+  def index
+    true
+  end
+
   def update?
     if !user.blank?
       user.admin?
