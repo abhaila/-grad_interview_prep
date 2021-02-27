@@ -5,8 +5,14 @@ class CoursePolicy < ApplicationPolicy
     end
   end
 
-  def create?
+  def index?
     true
+  end
+
+  def create?
+    if !user.blank?
+      user.admin?
+    end
   end
 
   def show?
@@ -18,10 +24,14 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin?
+    if !user.blank?
+      user.admin?
+    end
   end
 
   def destroy?
-    user.admin?
+    if !user.blank?
+      user.admin?
+    end
   end
 end

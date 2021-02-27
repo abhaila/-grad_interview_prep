@@ -16,3 +16,8 @@
     <%= link_to "New post", new_post_path(@post) %>
   <% end %>
 </div>
+<div class="container">
+  <% if policy(@posts).create? %>
+    <%= link_to "Add a post", new_post_path(@post), class: "btn btn-dark" %>
+  <% end %>
+</div>
