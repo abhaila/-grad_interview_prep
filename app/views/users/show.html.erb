@@ -1,2 +1,12 @@
 <h1>Hi </h1>
 
+<% if @user.photo.attached? %>
+  <% cl_image_tag @user.photo.key, class: "avatar" %>
+<% else %>
+  <% image_tag "https://avatars2.githubusercontent.com/u/68373422?s=400&u=c0305c43aae7809c60f21317727ed80471260fe0&v=4", class: "avatar dropdown-toggle" %>
+<% end %>
+<div class="container">
+  <%= link_to "Add a deck", new_user_deck_path(@user), class: "btn btn-dark" %>
+</div>
+
+<%= link_to "Edit Profile", edit_user_registration_path(current_user)%>
