@@ -1,0 +1,31 @@
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
+
+footer {
+  background: $dark-blue;
+  height: 100px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  a {
+    color: #fff;
+    margin-bottom: 10px;
+    &:hover {
+      color: #fff;
+      opacity: 0.8;
+    }
+  }
+}
+
+.footer-copyright {
+  margin-top: 10px;
+}
+
+.fa-facebook {
+  margin-right: 8px;
+}
