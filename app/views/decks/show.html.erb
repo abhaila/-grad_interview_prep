@@ -1,3 +1,23 @@
 <h1> <%= @deck.title %> flashcards </h1>
+<!-- Create a container for cards -->
+<div class="container mt-4 border-bottom border-warning border-10 d-flex justify-content-start">
+  <button class="btn btn-bookings flip" data-target="upcoming-bookings">Upcoming</button>
+</div>
+<div class="container">
+  <div class="container active">
+    <% @cards.each do |card| %>
+      <%= card.front_side %>
+    <% end %>
+  </div>
+  <div class="container">
+    <% @cards.each do |card| %>
+      <%= card.back_side %>
+    <% end %>
+  </div>
+</div>
+<!-- Show the front-side of card  - backside hidden until flipped -->
+<!-- add a flip button -->
+
+
 
 <%= link_to "Add a new card",  new_deck_card_path(@deck), class: "btn btn-dark" %>
