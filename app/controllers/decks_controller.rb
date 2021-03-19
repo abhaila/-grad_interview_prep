@@ -3,6 +3,7 @@ class DecksController < ApplicationController
 
   def show
     @card = Card.new
+    @cards = Card.all
   end
 
   def new
